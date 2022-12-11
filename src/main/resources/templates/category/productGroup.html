@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${category.getName()}"></title>
+    <link rel="stylesheet" th:href="@{/css/product_category.css}"/>
+</head>
+<body>
+<h3 th:text="${category.getName()}"></h3>
+
+<div class="category_items">
+    <div class="content_category" th:each="product : ${category.products}">
+        <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="150px">
+        <p th:text="${product.title}"></p>
+        <div class="price_item">
+            <p th:text="${product.price} + ' руб'"></p>
+        </div>
+        <div class="title_item">
+            <a th:href="@{/product/info/{id}(id=${product.getId()})}">Подробнее</a>
+        </div>
+        <div class="cart_butt">
+            <a th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить в корзину</a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

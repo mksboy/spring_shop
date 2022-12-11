@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title th:text="${group.name}"></title>
+    <link rel="stylesheet" th:href="@{/css/category.css}"/>
+</head>
+<body>
+<h2 th:text="${group.name}"></h2>
+<div class="category_items">
+    <div class="content_category" th:each="categori : ${group.categories}">
+        <img th:src="'/img/' + ${categori.imagePostCategories[0].getFileName()}" alt="img">
+        <a th:text="${categori.getName()}" th:href="@{/category/product/{id}(id=${categori.getId()})}"></a>
+    </div>
+</div>
+</body>
+</html>

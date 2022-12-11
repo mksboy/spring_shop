@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение роли</title>
+</head>
+<body>
+<h3>Изменение роли</h3>
+<form th:method="POST" th:action="@{/admin/order/{id}(id=${orderID.getId()})}" th:object="${orderID}">
+    <p th:text="'ID: ' + ${orderID.getId()}"></p>
+
+    <p th:text="'Number: ' + ${orderID.getNumber()}"></p>
+    <input type="hidden"  th:field="*{number}" th:value="${orderID.number}">
+
+    <p th:text="'product: ' + ${orderID.product.title}"></p>
+    <input type="hidden"  th:field="*{product.id}" th:value="${orderID.product.id}">
+
+    <p th:text="'person: ' + ${orderID.person.login}"></p>
+    <input type="hidden"  th:field="*{person.id}" th:value="${orderID.person.id}">
+
+    <p th:text="'count: ' + ${orderID.getCount()}"></p>
+    <input type="hidden"  th:field="*{count}" th:value="${orderID.count}">
+    <p th:text="'price: ' + ${orderID.getPrice()}"></p>
+    <input type="hidden"  th:field="*{price}" th:value="${orderID.price}">
+    <p th:text="'time: ' + ${orderID.getDateTime()}"></p>
+    <input type="hidden"  th:field="*{dateTime}" th:value="${orderID.dateTime}">
+    <p th:text="'status: ' + ${orderID.getStatus()}"></p>
+
+    <label >Статус</label>
+    <select th:field="*{status}">
+        <option th:each="state : ${T(com.example.shop_spring.ennum.Status).values()}"
+                th:value="${state}"
+                th:text="${state}">
+        </option>
+    </select>
+    <button type="submit">Редактировать</button>
+</form>
+</body>
+</html>

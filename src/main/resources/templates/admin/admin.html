@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет администратора</title>
+</head>
+<body>
+<h3>Личный кабинет администратора</h3>
+
+<a href="admin/product/add">Добавить товар</a>
+<br>
+<br>
+<a href="admin/product/add/group">Добавить основную группу товаров</a>
+<br>
+<br>
+<a href="admin/product/add/group/category">Добавить подгруппу товаров</a>
+<br>
+<br>
+<a href="admin/person">Просмотр и изменение пользователя</a>
+<br>
+<br>
+<a href="admin/role">Добавить роль</a>
+<br>
+<hr>
+<a href="admin/order">Все заказы</a>
+<br>
+<hr>
+<div th:each="product : ${products}">
+<!--    <p th:text="'Наименование: ' + ${product.getTitle()}"></p>-->
+<!--    <p th:text="'Производитель: ' + ${product.getManufacturer()}"></p>-->
+<!--    <p th:text="'Описание: ' + ${product.getDescription()}"></p>-->
+<!--    <p th:text="'Цена: ' + ${product.getPrice()}"></p>-->
+<!--    <p th:text="'Количество на складе: ' + ${product.getAmount()}"></p>-->
+    <img th:src="'/img/' + ${product.imageList[0].getFileName()}" width="100px">
+    <p th:text="'Категория: ' + ${product.getCategory().getName()}"></p>
+    <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+    <p th:text="'Производитель: ' + ${product.getManufacturer()}"></p>
+
+    <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+    <a th:href="@{/product/info/{id}(id=${product.getId()})}" th:text="${product.getTitle()}"></a>
+    <hr>
+    <a th:href="@{/admin/product/edit/{id}(id=${product.getId()})}">
+        Редактировать товар
+    </a>
+    <br>
+    <a th:href="@{/admin/product/delete/{id}(id=${product.getId()})}">
+        Удалить товар
+    </a>
+    <hr>
+</div>
+
+<form method="post" th:action="@{/authentication/index}">
+    <input type="submit" value="Выйти из личного кабинета">
+</form>
+</body>
+</html>

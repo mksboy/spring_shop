@@ -1,0 +1,44 @@
+body {
+    margin: 0 auto;
+}
+
+h3 {text-align: center}
+
+.login_item {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+.login {
+    display: grid;
+    justify-self: center;
+    /*place-self: center;*/
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 140, 0, 0.39);
+}
+
+.login_in {
+    display: grid;
+    padding: 20px;
+}
+
+.password_in {
+    display: grid;
+    padding: 20px;
+}
+
+.input_in {
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    padding-right: 30px;
+}
+
+.reg_item {
+    text-align: end;
+    padding-top: 20px;
+    padding-right:30px;
+}

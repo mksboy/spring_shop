@@ -1,0 +1,26 @@
+h3 {
+    text-align: center;
+}
+
+.product {
+    width: 800px;
+}
+
+.product_items {
+    display: grid;
+    border: 1px solid black;
+
+    margin: 20px;
+}
+
+.product_item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: auto;
+    height: 300px;
+
+    grid-gap: 20px;
+}
+
+
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение статуса заказа</title>
+</head>
+<body>
+<h3>Изменение статуса заказа</h3>
+<div th:each="order:${all_order}">
+
+    <p th:text="'ID: ' + ${order.getId()}"></p>
+    <p th:text="'Number: ' + ${order.getNumber()}"></p>
+    <p th:text="'product: ' + ${order.product.title}"></p>
+    <p th:text="'person: ' + ${order.person.login}"></p>
+    <p th:text="'count: ' + ${order.getCount()}"></p>
+    <p th:text="'price: ' + ${order.getPrice()}"></p>
+    <p th:text="'time: ' + ${order.getDateTime()}"></p>
+    <p th:text="'status: ' + ${order.getStatus()}"></p>
+    <a th:href="@{/admin/order/{id}(id=${order.getId()})}" th:text="${order.getStatus()}"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/infoProduct.css}"/>
+    <title>Информация о товаре</title>
+</head>
+<body>
+<div class="category_items">
+    <div class="content_category">
+        <p th:text="'Наименование: ' + ${product.getTitle()}"></p>
+        <p th:text="'Производитель: ' + ${product.getManufacturer()}"></p>
+        <p th:text="'Описание: ' + ${product.getDescription()}"></p>
+        <p th:text="'Цена: ' + ${product.getPrice()}"></p>
+        <p th:text="'Количество на складе: ' + ${product.getAmount()}"></p>
+    </div>
+
+    <div class="category_img">
+        <div th:each="img : ${product.getImageList()}">
+            <div class="img_items">
+                <img th:src="'/img/' + ${img.getFileName()}" >
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

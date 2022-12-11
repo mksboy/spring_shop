@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление товаров</title>
+</head>
+<body>
+<h3>Добавление товаров</h3>
+<form th:method="POST" th:action="@{/admin/product/add}" th:object="${product}" enctype="multipart/form-data">
+    <label for="title">Введите название товара: </label>
+    <input type="text" th:field="*{title}" placeholder="Название" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+    <br>
+    <br>
+    <label for="manufacturer">Введите название производителя: </label>
+    <input type="text" th:field="*{manufacturer}" placeholder="Производитель" id="manufacturer">
+    <div style="color: red" th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}"></div>
+    <br>
+    <br>
+    <label for="description">Введите описание товара</label>
+    <textarea th:field="*{description}" placeholder="Описание" id="description"></textarea>
+    <div style="color: red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    <br>
+    <br>
+    <label for="price">Введите цену товара</label>
+    <input type="number" th:field="*{price}" min="1" step="0.00" placeholder="Цена" id="price">
+    <div style="color: red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div>
+    <br>
+    <br>
+    <label for="amount">Введите количество добавляемого товара</label>
+    <input type="number" th:field="*{amount}" min="1" step="0" placeholder="Количество" id="amount">
+    <div style="color: red" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></div>
+    <br>
+    <br>
+    <p style="color: red">Добавте до 5 фотографий. Первая фотография, фотография обложки</p>
+    <br>
+    <br>
+    <label for="category">Введите категорию товара</label>
+    <select name="category" th:field="*{category}" id="category">
+        <div th:each="element : ${category}">
+            <option th:text="${element.getName()}" th:value="${element.getId()}"></option>
+        </div>
+    </select>
+    <br>
+    <br>
+    <input type="file" name="file_one">
+    <input type="file" name="file_two">
+    <input type="file" name="file_three">
+    <input type="file" name="file_four">
+    <input type="file" name="file_five">
+    <br>
+    <br>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

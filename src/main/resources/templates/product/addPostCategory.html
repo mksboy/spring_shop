@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление подгруппы</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/product/add/group/category}" th:object="${category_new}" enctype="multipart/form-data">
+    <br>
+    <label for="category_post">Введите категорию </label>
+    <select name="category_post" th:field="*{groupCategory}" id="category_post">
+        <div th:each="element_post : ${category_post}">
+            <option th:text="${element_post.getName()}" th:value="${element_post.getId()}"></option>
+        </div>
+    </select>
+    <br>
+    <label for="title">Введите название категории: </label>
+    <input type="text" th:field="*{name}" placeholder="Название" id="title">
+    <input type="file" name="file_img_two">
+    <!--    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>-->
+    <button type="submit">Добавить</button>
+    <br>
+    <br>
+</form>
+<form method="post" th:action="@{/admin/admin}">
+    <input type="submit" value="Кабинет администратора">
+</form>
+<br>
+<br>
+
+<form method="post" th:action="@{/admin}">
+    <input type="submit" value="Выйти из личного кабинета">
+</form>
+
+<div th:each="categories : ${groups}">
+    <img th:src="'/img/' + ${categories.imagePostCategories[0].getFileName()}">
+    <p th:text="${categories.groupCategory.getName()}  + ' - ' + ${categories.getName()}"></p>
+</div>
+
+
+</body>
+</html>

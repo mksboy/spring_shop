@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление категории</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/product/add/group}" th:object="${group}" enctype="multipart/form-data">
+    <label for="title">Введите название товара: </label>
+    <input type="text" th:field="*{name}" placeholder="Название" id="title">
+    <input type="file" name="file_img_one">
+<!--    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>-->
+    <button type="submit">Добавить</button>
+    <br>
+    <br>
+
+</form>
+
+<form method="post" th:action="@{/admin/admin}">
+    <input type="submit" value="Кабинет администратора">
+</form>
+<br>
+<br>
+<form method="post" th:action="@{/authentication/index}">
+    <input type="submit" value="Выйти из личного кабинета">
+</form>
+
+<div th:each="categories : ${category_post}">
+    <img th:src="'/img/' + ${categories.imageListCategory[0].getFileName()}">
+    <p th:text="${categories.getName()}"></p>
+</div>
+</body>
+</html>
