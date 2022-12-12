@@ -226,4 +226,5 @@ justify-items: end;
 footer {
     height: 45px;
     background-color: black;
+    z-index: 999;
 }
