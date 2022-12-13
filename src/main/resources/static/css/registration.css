@@ -1,0 +1,59 @@
+body {
+    margin: 0 auto;
+
+}
+
+.container {
+    display: grid;
+    justify-items: center;
+    padding-top:50px;
+}
+
+.form_item {
+    display: grid;
+    grid-template-rows: 0.1fr 1fr 1fr 0.3fr 0.3fr 0.3fr;
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.title_item {
+    justify-self: center;
+
+}
+
+.login_item {
+    display: grid;
+    grid-auto-rows: 0.2fr 1fr 0.2fr;
+
+}
+
+.input_item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.reg_item {
+    display: grid;
+    grid-auto-rows: 0.2fr 1fr 0.2fr;
+}
+
+.input_reg_item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button_item {
+    justify-self: end;
+}
+
+.mesage{
+
+}
+
+.autoirization {
+    justify-self: end;
+
+}
