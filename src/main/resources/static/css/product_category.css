@@ -5,19 +5,20 @@ h3{
 .category_items {
     display: grid;
     grid-template-columns: repeat(auto-fill,230px);
-    justify-content: center;
-    padding-top: 60px;
+
     grid-gap: 25px;
+    justify-items: center;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .content_category {
     display: grid;
-    grid-template-rows: 1fr 0.5fr;
-    align-content: center;
-    justify-content: center;
-    border: 1px solid #cacaca;
-    text-align: center;
-    height: 300px;
+    grid-template-rows: 0.5fr 0.2fr 0.2fr 0.2fr 0.2fr;
+    min-height: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
     padding: 10px;
 
 }
@@ -62,7 +63,12 @@ h3{
 
     align-items: end;
     justify-items: end;
+}
 
+.cart_butt{
+    justify-self: end;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .title_item {
