@@ -180,7 +180,7 @@ public class AdminController {
         model.addAttribute("group", new GroupCategory());
         model.addAttribute("category_post", groupCategoryService.getAllGroupCategory());
         model.addAttribute("groups",categoryService.getAllCategory());
-        return "redirect:/admin";
+        return "product/addCategory";
     }
 
     @PostMapping("product/add/group")

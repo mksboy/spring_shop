@@ -9,9 +9,9 @@
 <form th:method="POST" th:action="@{/admin/person/{id}(id=${person.getId()})}" th:object="${person}">
     <p th:text="'ID: ' + ${person.getId()}" th:field="*{id}"></p>
     <p th:text="'Login: ' + ${person.getLogin()}" th:field="*{login}" ></p>
-    <input type="text" th:field="*{login}" th:value="${person.login}">
+    <input type="hidden" th:field="*{login}" th:value="${person.login}">
     <p th:text="'Password: ' + ${person.getPassword()}" th:field="*{password}"></p>
-    <input type="text" th:field="*{password}" th:value="${person.password}">
+    <input type="hidden" th:field="*{password}" th:value="${person.password}">
     <p th:text="'ROLE_ : ' + ${person.getRole()}"></p>
 
     <label for="category">Введите роль</label>

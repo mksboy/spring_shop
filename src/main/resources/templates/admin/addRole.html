@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h3>HHHHHHH</h3>
+<h3 style="color: red">Добавить роль можно только с префиксом ROLE_</h3>
 <form th:method="post" th:action="@{/admin/role}" th:object="${role_get}" enctype="multipart/form-data">
     <label for="title">Введите название товара: </label>
     <input type="text" th:field="*{name}" placeholder="Название" id="title">
